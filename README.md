@@ -13,7 +13,7 @@ Signalk-server-node, Telegraf, Influxdb and Grafana in docker-compose
     └── telegraf
         └── telegraf config file is located here (bind mount)
 ```
-1st Intallation:
+1st Installation:
 - Run run_me_1st.sh when installing SignalK, Telegraf, Influxdb and Grafana at first time
 - Database "boatdata" is generated and retention policy is set to 7 day. Alter settings before running it if you want other name and different retention policy for the database.
 
