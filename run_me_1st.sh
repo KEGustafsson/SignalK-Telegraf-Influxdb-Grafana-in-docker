@@ -22,3 +22,8 @@ docker stop grafana
 docker rm grafana
 
 docker-compose up -d
+
+sleep 10
+
+curl -i -XPOST http://localhost:8086/query --data-urlencode "q=CREATE DATABASE boatdata"
+curl -i -XPOST http://localhost:8086/query --data-urlencode "q=ALTER RETENTION POLICY "autogen" ON "boatdata" DURATION 7d"
