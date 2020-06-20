@@ -25,10 +25,11 @@ Program locations:
 - Grafana <'ipaddress'>:3001
 - Influxdb <'ipaddress'>:8086
 
-Ports for Signalk:
+Signalk ports:
 - Modify docker-compose.yml to match ports used by SignalK (inputs to SignalK/docker)
 
-Telegraf has dummy telegraf.conf installed after run_me_1st.sh was run. Edit configuration according to your needs and restart docker-compose. If you do not need telegraf, you don't need to do anything.
+Telegraf:
+Telegraf has a dummy telegraf.conf installed after run_me_1st.sh was run. Edit configuration according to your needs (input: data sources and output: influxdb database, urls, username and password) and restart docker-compose. If you do not need telegraf, you don't need to do anything.
 
 To use specific tag/release:
 - uncomment Dockecfile tag selection and specify version there
