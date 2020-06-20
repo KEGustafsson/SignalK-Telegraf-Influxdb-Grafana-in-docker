@@ -15,14 +15,15 @@ Signalk-server-node, Telegraf, Influxdb and Grafana in docker-compose
 ```
 1st Intallation:
 - Run run_me_1st.sh when installing SignalK, Telegraf, Influxdb and Grafana at first time
+- Database "boatdata" is generated and retention policy is set to 7 day. Alter settings before running it if you want other name and different retention policy for the database.
 
 Update/Upgarde:
 - Run update.sh when need to be updated SignalK, Telegraf, Influxdb or Grafana
 
 Program locations:
 - Signalk <'ipaddress'>:3000
-- Grafana <'ipadress'>:3001
-- Influxdb <'ipadress'>:8086
+- Grafana <'ipaddress'>:3001
+- Influxdb <'ipaddress'>:8086
 
 Ports for Signalk:
 - Modify docker-compose.yml to match ports used by SignalK (inputs to SignalK/docker)
