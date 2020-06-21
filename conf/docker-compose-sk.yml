@@ -6,8 +6,6 @@ services:
     container_name: signalk-server-node
     restart: unless-stopped
     network_mode: bridge
-    links:
-      - influxdb
     ports:
       - "3000:3000"
       - "3443:3443"
