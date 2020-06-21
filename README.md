@@ -40,6 +40,16 @@ Telegraf has a dummy telegraf.conf installed after run_me_1st.sh was run. Edit c
 To use specific tag/release:
 - uncomment Dockecfile tag selection and specify version there
 
+Docker & Docker-compose:
+- Install proper dependencies, Docker and Docker Compose
+```bash
+curl -sSL https://get.docker.com | sh
+sudo apt-get install -y libffi-dev libssl-dev
+sudo apt-get install -y python3 python3-pip
+sudo apt-get remove python-configparser
+sudo pip3 install docker-compose
+```
+
 Manual installation
 - docker-compose build .
 - docker-compose pull
