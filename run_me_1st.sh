@@ -16,6 +16,7 @@ case $readMe in
     docker cp signalk-server-node:/home/node/.signalk/. $PWD/../signalk_conf
     docker stop signalk-server-node
     docker rm signalk-server-node
+    docker-compose up -d
     ;;
 
   [2])
