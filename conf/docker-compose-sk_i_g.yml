@@ -33,6 +33,7 @@ services:
 
   signalk-server-node:
     build: .
+    image: signalk-server-node
     container_name: signalk-server-node
     restart: unless-stopped
     network_mode: bridge
