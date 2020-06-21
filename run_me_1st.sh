@@ -10,7 +10,7 @@ case $readMe in
   [1])
     cp $PWD/conf/docker-compose-sk.yml docker-compose.yml
     docker build -t signalk-server-node .
-    docker run --name signalk-server-node --entrypoint /home/node/signalk/bin/sign$
+    docker run --name signalk-server-node --entrypoint /home/node/signalk/bin/signalk-server signalk-server-node &
     sleep 30
     mkdir -p $PWD/../signalk_conf
     docker cp signalk-server-node:/home/node/.signalk/. $PWD/../signalk_conf
@@ -22,7 +22,7 @@ case $readMe in
   [2])
     cp $PWD/conf/docker-compose-sk_i_g.yml docker-compose.yml
     docker build -t signalk-server-node .
-    docker run --name signalk-server-node --entrypoint /home/node/signalk/bin/sign$
+    docker run --name signalk-server-node --entrypoint /home/node/signalk/bin/signalk-server signalk-server-node &
     docker run --name grafana grafana/grafana &
     sleep 30
     mkdir -p $PWD/../signalk_conf
@@ -45,7 +45,7 @@ case $readMe in
   [3])
     cp $PWD/conf/docker-compose-sk_i_g_t.yml docker-compose.yml
     docker build -t signalk-server-node .
-    docker run --name signalk-server-node --entrypoint /home/node/signalk/bin/sign$
+    docker run --name signalk-server-node --entrypoint /home/node/signalk/bin/signalk-server signalk-server-node &
     docker run --name grafana grafana/grafana &
     sleep 30
     mkdir -p $PWD/../signalk_conf
