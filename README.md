@@ -13,9 +13,15 @@ Signalk-server-node, Telegraf, Influxdb and Grafana in docker-compose
     └── telegraf
         └── telegraf config file is located here (bind mount)
 ```
-1st Installation:
+1st Intallation:
 - Run run_me_1st.sh when installing SignalK, Telegraf, Influxdb and Grafana at first time
-- Database "boatdata" is generated and retention policy is set to 7 day. Alter settings before running it if you want other name and different retention policy for the database.
+- In case Influxdb is selected, then database "boatdata" is generated and retention policy is set to 7 day. Alter settings before running it if you want other name and different retention policy for the database.
+```bash
+1st time installation, select 1-3
+   1: SignalK
+   2: SignalK + Influxdb and Grafana
+   3: SignalK + Influxdb + Grafana and Telegraf
+```
 
 Update/Upgarde:
 - Run update.sh when need to be updated SignalK, Telegraf, Influxdb or Grafana
@@ -29,7 +35,7 @@ Signalk ports:
 - Modify docker-compose.yml to match ports used by SignalK (inputs to SignalK/docker)
 
 Telegraf:
-- Telegraf has a dummy telegraf.conf installed after run_me_1st.sh was run. Edit configuration according to your needs (input: data sources and output: influxdb database, urls, username and password) and restart docker-compose. If you do not need telegraf, you don't need to do anything.
+Telegraf has a dummy telegraf.conf installed after run_me_1st.sh was run. Edit configuration according to your needs (input: data sources and output: influxdb database, urls, username and password) and restart docker-compose. If you do not need telegraf, you don't need to do anything.
 
 To use specific tag/release:
 - uncomment Dockecfile tag selection and specify version there

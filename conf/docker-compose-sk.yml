@@ -1,0 +1,25 @@
+version: "2.2"
+
+services:
+  signalk-server-node:
+    build: .
+    container_name: signalk-server-node
+    restart: unless-stopped
+    network_mode: bridge
+    links:
+      - influxdb
+    ports:
+      - "3000:3000"
+      - "3443:3443"
+      - "5010:5010/udp"
+      - "5011:5011/udp"
+      - "10110:10110"
+      # add/modify ports which are needed for SignalK
+    volumes:
+      - $PWD/../signalk_conf:/home/node/.signalk
+      - /dev:/dev/hostdev
+    entrypoint: /home/node/signalk/bin/signalk-server --securityenabled
+    privileged: true
+    logging:
+      options:
+        max-size: 10m
