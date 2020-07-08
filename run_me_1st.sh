@@ -9,26 +9,16 @@ case $readMe in
 
   [1])
     cp $PWD/conf/docker-compose-sk.yml docker-compose.yml
-    docker build -t signalk-server-node .
-    docker run --name signalk-server-node --entrypoint /home/node/signalk/bin/signalk-server signalk-server-node &
-    sleep 30
     mkdir -p $PWD/../signalk_conf
-    docker cp signalk-server-node:/home/node/.signalk/. $PWD/../signalk_conf
-    docker stop signalk-server-node
-    docker rm signalk-server-node
     docker-compose up -d
+    docker-compose restart
     ;;
 
   [2])
     cp $PWD/conf/docker-compose-sk_i_g.yml docker-compose.yml
-    docker build -t signalk-server-node .
-    docker run --name signalk-server-node --entrypoint /home/node/signalk/bin/signalk-server signalk-server-node &
     docker run --name grafana grafana/grafana &
     sleep 30
     mkdir -p $PWD/../signalk_conf
-    docker cp signalk-server-node:/home/node/.signalk/. $PWD/../signalk_conf
-    docker stop signalk-server-node
-    docker rm signalk-server-node
     mkdir -p $PWD/../signalk_volume/influxdb
     mkdir -p $PWD/../signalk_volume/grafana/data
     mkdir -p $PWD/../signalk_volume/grafana/conf
@@ -40,18 +30,14 @@ case $readMe in
     sleep 20
     curl -i -XPOST http://localhost:8086/query --data-urlencode "q=CREATE DATABASE boatdata"
     curl -i -XPOST http://localhost:8086/query --data-urlencode "q=ALTER RETENTION POLICY "autogen" ON "boatdata" DURATION 7d"
+    docker-compose restart
     ;;
 
   [3])
     cp $PWD/conf/docker-compose-sk_i_g_t.yml docker-compose.yml
-    docker build -t signalk-server-node .
-    docker run --name signalk-server-node --entrypoint /home/node/signalk/bin/signalk-server signalk-server-node &
     docker run --name grafana grafana/grafana &
     sleep 30
     mkdir -p $PWD/../signalk_conf
-    docker cp signalk-server-node:/home/node/.signalk/. $PWD/../signalk_conf
-    docker stop signalk-server-node
-    docker rm signalk-server-node
     mkdir -p $PWD/../signalk_volume/influxdb
     mkdir -p $PWD/../signalk_volume/grafana/data
     mkdir -p $PWD/../signalk_volume/grafana/conf
@@ -65,6 +51,7 @@ case $readMe in
     sleep 20
     curl -i -XPOST http://localhost:8086/query --data-urlencode "q=CREATE DATABASE boatdata"
     curl -i -XPOST http://localhost:8086/query --data-urlencode "q=ALTER RETENTION POLICY "autogen" ON "boatdata" DURATION 7d"
+    docker-compose restart
     ;;
 
   *)
