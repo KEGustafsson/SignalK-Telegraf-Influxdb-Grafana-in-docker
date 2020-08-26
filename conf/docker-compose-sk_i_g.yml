@@ -31,10 +31,10 @@ services:
       options:
         max-size: 10m
 
-  signalk-server-node:
+  signalk-server:
     build: .
-    image: signalk-server-node
-    container_name: signalk-server-node
+    image: signalk-server
+    container_name: signalk-server
     restart: unless-stopped
     network_mode: host
     volumes:
