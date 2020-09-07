@@ -1,6 +1,6 @@
 FROM node:10-slim
 
-RUN apt-get update && apt-get -y install sudo git python3 python build-essential
+RUN apt-get update && apt-get -y install sudo git python3 python build-essential libavahi-compat-libdnssd-dev
 RUN groupadd -r i2c -g 998 && groupadd -r spi -g 999 && usermod -a -G dialout,i2c,spi node
 
 RUN echo 'node ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
