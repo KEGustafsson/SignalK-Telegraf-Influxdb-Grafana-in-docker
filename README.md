@@ -1,4 +1,4 @@
-# SignalK, Telegraf, Influxdb and Grafana
+# SignalK, Telegraf, Influxdb and Grafana in docker
 Signalk-server, Telegraf, Influxdb and Grafana in docker-compose 
 ```bash
 git clone https://github.com/KEGustafsson/signalk-server-docker.git signalk
