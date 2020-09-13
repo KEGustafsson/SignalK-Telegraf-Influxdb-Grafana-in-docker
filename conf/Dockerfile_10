@@ -16,33 +16,12 @@ WORKDIR /home/node/signalk
 # RUN git fetch && git fetch --tags
 # RUN git checkout v1.30.0
 
-RUN git fetch && git fetch --tags
-RUN git checkout preferred-source-delta-filtering
-RUN git config user.email "you@example.com"
-RUN git config user.name "Your Name"
-RUN git merge --no-commit --no-ff origin/master
-
-# Startup script
 COPY --chown=node startup.sh startup.sh
 RUN chmod +x startup.sh
-
-# Uncomment if you want patching enabled
-ADD --chown=node patch patch
-RUN git apply ./patch/*.patch
 
 RUN npm install
 RUN npm run build
 RUN mkdir -p /home/node/.signalk
-
-#server-admin-ui
-WORKDIR /home/node/signalk/packages/server-admin-ui
-RUN npm i
-RUN npm run prepublishOnly
-USER root
-RUN npm link
-WORKDIR /home/node/signalk
-RUN npm link @signalk/server-admin-ui
-USER node
 
 EXPOSE 3000
 ENV IS_IN_DOCKER true
