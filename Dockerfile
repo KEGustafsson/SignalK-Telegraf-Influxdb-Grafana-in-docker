@@ -1,7 +1,7 @@
 FROM node:12-slim
 
 RUN apt-get update && apt-get -y install apt-utils
-RUN apt-get update && apt-get -y install sudo git python3 python build-essential dbus avahi-daemon avahi-discover avahi-utils libnss-mdns mdns-scan libavahi-compat-libdnssd-dev
+RUN apt-get update && apt-get -y install sudo git python3 python build-essential dbus avahi-daemon avahi-discover avahi-utils libnss-mdns mdns-scan libavahi-compat-libdnssd-dev sysstat procps
 RUN groupadd -r i2c -g 998 && groupadd -r spi -g 999 && usermod -a -G dialout,i2c,spi node
 
 RUN echo 'node ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
@@ -22,12 +22,12 @@ RUN git config user.email "you@example.com"
 RUN git config user.name "Your Name"
 RUN git merge --no-commit --no-ff origin/master
 
-COPY startup.sh startup.sh
-USER root
+# Startup script
+COPY --chown=node startup.sh startup.sh
 RUN chmod +x startup.sh
-USER node
+
 # Uncomment if you want patching enabled
-ADD patch patch
+ADD --chown=node patch patch
 RUN git apply ./patch/*.patch
 
 RUN npm install
