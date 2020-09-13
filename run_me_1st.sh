@@ -1,11 +1,33 @@
 #!/bin/bash
+echo "Select which node version will be used"
+echo "   1: Node10-slim"
+echo "   2: Node12-slim"
+read readMe1
+
+case $readMe1 in
+
+  [1])
+    cp $PWD/conf/Dockerfile_10 Dockerfile
+    ;;
+
+  [2])
+    cp $PWD/conf/Dockerfile_12 Dockerfile
+    ;;
+  *)
+    echo "Unknown selection"
+    ;;
+
+esac
+
+echo
+echo
 echo "1st time installation, select 1-3"
 echo "   1: SignalK"
 echo "   2: SignalK + Influxdb and Grafana"
 echo "   3: SignalK + Influxdb + Grafana and Telegraf"
-read readMe
+read readMe2
 
-case $readMe in
+case $readMe2 in
 
   [1])
     cp $PWD/conf/docker-compose-sk.yml docker-compose.yml
@@ -28,8 +50,8 @@ case $readMe in
     docker rm grafana
     docker-compose up -d
     sleep 20
-    curl -i -XPOST http://localhost:8086/query --data-urlencode "q=CREATE DATABASE boatdata"
-    curl -i -XPOST http://localhost:8086/query --data-urlencode "q=ALTER RETENTION POLICY "autogen" ON "boatdata" DURATION 7d"
+ #   curl -i -XPOST http://localhost:8086/query --data-urlencode "q=CREATE DATABASE boatdata"
+ #   curl -i -XPOST http://localhost:8086/query --data-urlencode "q=ALTER RETENTION POLICY "autogen" ON "boatdata" DURATION 7d"
     docker-compose restart
     ;;
 
@@ -49,8 +71,8 @@ case $readMe in
     docker rm grafana
     docker-compose up -d
     sleep 20
-    curl -i -XPOST http://localhost:8086/query --data-urlencode "q=CREATE DATABASE boatdata"
-    curl -i -XPOST http://localhost:8086/query --data-urlencode "q=ALTER RETENTION POLICY "autogen" ON "boatdata" DURATION 7d"
+#    curl -i -XPOST http://localhost:8086/query --data-urlencode "q=CREATE DATABASE boatdata"
+#    curl -i -XPOST http://localhost:8086/query --data-urlencode "q=ALTER RETENTION POLICY "autogen" ON "boatdata" DURATION 7d"
     docker-compose restart
     ;;
 
