@@ -46,6 +46,9 @@ services:
       - /sys:/rootfs/sys:ro
       - /proc:/rootfs/proc:ro
       - /etc:/rootfs/etc:ro
+    logging:
+      options:
+        max-size: 10m
 
   signalk-server:
     build: .
@@ -56,7 +59,7 @@ services:
     volumes:
       - $PWD/../signalk_conf:/home/node/.signalk
       - /dev:/dev/hostdev
-    entrypoint: /home/node/signalk/bin/signalk-server --securityenabled
+    entrypoint: sh /home/node/signalk/startup.sh
     privileged: true
     logging:
       options:

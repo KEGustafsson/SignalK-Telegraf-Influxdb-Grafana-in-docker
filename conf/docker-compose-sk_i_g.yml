@@ -40,7 +40,7 @@ services:
     volumes:
       - $PWD/../signalk_conf:/home/node/.signalk
       - /dev:/dev/hostdev
-    entrypoint: /home/node/signalk/bin/signalk-server --securityenabled
+    entrypoint: sh /home/node/signalk/startup.sh
     privileged: true
     logging:
       options:

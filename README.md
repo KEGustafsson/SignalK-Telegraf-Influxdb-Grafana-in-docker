@@ -1,5 +1,5 @@
-# SignalK, Telegraf, Influxdb and Grafana in docker
-Signalk-server, Telegraf, Influxdb and Grafana in docker-compose 
+# SignalK, Telegraf, Influxdb and Grafana
+Signalk-server, Telegraf, Influxdb and Grafana in docker-compose. mDNS services are discoverable from docker.
 ```bash
 git clone https://github.com/KEGustafsson/SignalK-Telegraf-Influxdb-Grafana-in-docker.git signalk
 
@@ -17,8 +17,12 @@ git clone https://github.com/KEGustafsson/SignalK-Telegraf-Influxdb-Grafana-in-d
 ```
 1st Intallation:
 - Run run_me_1st.sh when installing SignalK, Telegraf, Influxdb and Grafana at first time
-- In case Influxdb is selected, then database "boatdata" is generated and retention policy is set to 7 day. Alter settings before running it if you want other name and different retention policy for the database.
+- In case Influxdb is selected, then database "boatdata" is generated. If you want retention policy active, uncomment respective lines. Alter settings before running it if you want other name and different retention policy for the database.
 ```bash
+Select which node version will be used
+   1: Node10-slim
+   2: Node12-slim
+
 1st time installation, select 1-3
    1: SignalK
    2: SignalK + Influxdb and Grafana
@@ -57,10 +61,17 @@ Manual installation
 - docker-compose pull
 - docker-compose up -d
 
-Stop:
+Up/Down:
+- docker-compose up -d (-d run service as a daemon)
 - docker-compose down
 
-Restart:
+Start/Stop/Restart:
+- docker-compose start 
+- docker-compose stop
 - docker-compose restart
+
+Start/Stop individual service e.g. SignalK and rest of the stack will remain untouched
+- docker-compose start signalk-server
+- docker-compose stop signalk-server
 
 Test on Intel/AMD (x86_64) and ARM64 (aarch64) platforms.
