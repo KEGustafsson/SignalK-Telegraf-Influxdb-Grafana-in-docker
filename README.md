@@ -1,19 +1,19 @@
 # SignalK, Telegraf, Influxdb and Grafana
 Signalk-server, Telegraf, Influxdb and Grafana in docker-compose. mDNS services are discoverable from docker.
 ```bash
-git clone https://github.com/KEGustafsson/signalk-server-docker.git signalk
+git clone https://github.com/KEGustafsson/SignalK-Telegraf-Influxdb-Grafana-in-docker.git signalk
 
 ├── signalk
-│   └── signalk docker files located here 
+│   └── signalk docker files located here 
 ├── signalk_conf
-│   └── .signalk -folder is located here (bind mount) 
+│   └── .signalk -folder is located here (bind mount) 
 └── signalk_volume
-    ├── influxdb
-    │   └── influx database files are located here (bind mount)
-    ├── grafana
-    │   └── grafana config files are located here (bind mount)
-    └── telegraf
-        └── telegraf config file is located here (bind mount)
+    ├── influxdb
+    │   └── influx database files are located here (bind mount)
+    ├── grafana
+    │   └── grafana config files are located here (bind mount)
+    └── telegraf
+        └── telegraf config file is located here (bind mount)
 ```
 1st Intallation:
 - Run run_me_1st.sh when installing SignalK, Telegraf, Influxdb and Grafana at first time
