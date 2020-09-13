@@ -61,7 +61,7 @@ Manual installation
 - docker-compose pull
 - docker-compose up -d
 
-Up/Down:
+Up/Down: (use this instead of start/stop/restart, if you see problems with mDNS) 
 - docker-compose up -d (-d run service as a daemon)
 - docker-compose down
 
