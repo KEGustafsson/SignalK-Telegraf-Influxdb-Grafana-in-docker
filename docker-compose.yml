@@ -11,7 +11,6 @@ services:
       - $PWD/../signalk_conf:/home/node/.signalk
       - /dev:/dev/hostdev
     entrypoint: sh /home/node/signalk/startup.sh
-#    entrypoint: /home/node/signalk/bin/signalk-server --securityenabled
     privileged: true
     logging:
       options:
