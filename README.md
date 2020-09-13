@@ -1,5 +1,5 @@
 # SignalK, Telegraf, Influxdb and Grafana
-Signalk-server, Telegraf, Influxdb and Grafana in docker-compose 
+Signalk-server, Telegraf, Influxdb and Grafana in docker-compose. mDNS services are discoverable from docker.
 ```bash
 git clone https://github.com/KEGustafsson/signalk-server-docker.git signalk
 
@@ -61,10 +61,17 @@ Manual installation
 - docker-compose pull
 - docker-compose up -d
 
-Stop:
+Up/Down:
+- docker-compose up -d (-d run service as a daemon)
 - docker-compose down
 
-Restart:
+Start/Stop/Restart:
+- docker-compose start 
+- docker-compose stop
 - docker-compose restart
+
+Start/Stop individual service e.g. SignalK and rest of the stack will remain untouched
+- docker-compose start signalk-server
+- docker-compose stop signalk-server
 
 Test on Intel/AMD (x86_64) and ARM64 (aarch64) platforms.
