@@ -19,6 +19,10 @@ git clone https://github.com/KEGustafsson/signalk-server-docker.git signalk
 - Run run_me_1st.sh when installing SignalK, Telegraf, Influxdb and Grafana at first time
 - In case Influxdb is selected, then database "boatdata" is generated and retention policy is set to 7 day. Alter settings before running it if you want other name and different retention policy for the database.
 ```bash
+Select which node version will be used
+   1: Node10-slim
+   2: Node12-slim
+
 1st time installation, select 1-3
    1: SignalK
    2: SignalK + Influxdb and Grafana
