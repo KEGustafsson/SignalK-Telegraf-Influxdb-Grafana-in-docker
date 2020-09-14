@@ -19,6 +19,10 @@ WORKDIR /home/node/signalk
 COPY --chown=node startup.sh startup.sh
 RUN chmod +x startup.sh
 
+# Place here ENV parameters if you need alter default setup
+# ENV PORT 5000
+# ENV SSLPORT 5443
+
 RUN npm install
 RUN npm run build
 RUN mkdir -p /home/node/.signalk
