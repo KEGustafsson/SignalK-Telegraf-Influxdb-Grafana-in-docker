@@ -46,6 +46,9 @@ Telegraf:
 To use specific tag/release:
 - uncomment Dockerfile tag selection and specify version there
 
+To use specific ENV parameters (https://github.com/SignalK/signalk-server#environment-variables):
+- uncomment Dockerfile ENV selection and specify parameters there
+
 Docker & Docker-compose:
 - Install proper dependencies, Docker and Docker Compose
 ```bash
