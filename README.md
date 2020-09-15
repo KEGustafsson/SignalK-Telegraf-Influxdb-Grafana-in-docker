@@ -32,21 +32,23 @@ Select which node version will be used
 Update/Upgarde:
 - Run update.sh when need to be updated SignalK, Telegraf, Influxdb or Grafana
 
-Program locations:
-- Signalk <'ipaddress'>:3000
-- Grafana <'ipaddress'>:3001
-- Influxdb <'ipaddress'>:8086
+SignalK
+- Running in default port 3000
 
-Signalk ports:
-- Modify docker-compose.yml to match ports used by SignalK (inputs to SignalK/docker)
+Grafana:
+- Running in port 3001
+- Data Source (boatdata) is automatically provisioned to Grafana
 
+Influxdb:
+- Running in default port 8086
+ 
 Telegraf:
 - Telegraf has a dummy telegraf.conf installed after run_me_1st.sh was run. Edit configuration according to your needs (input: data sources and output: influxdb database, urls, username and password) and restart docker-compose. If you do not need telegraf, you don't need to do anything.
 
-To use specific tag/release:
+To use specific SignalK tag/release:
 - uncomment Dockerfile tag selection and specify version there
 
-To use specific ENV parameters (https://github.com/SignalK/signalk-server#environment-variables):
+To use specific SignalK ENV parameters (https://github.com/SignalK/signalk-server#environment-variables):
 - uncomment Dockerfile ENV selection and specify parameters there
 
 Docker & Docker-compose:
