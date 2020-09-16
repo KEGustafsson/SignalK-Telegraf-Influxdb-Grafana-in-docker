@@ -37,7 +37,7 @@ SignalK
 
 Grafana:
 - Running in port 3001
-- Data Source (boatdata) is automatically provisioned to Grafana
+- TODO: Data Source (boatdata) is automatically provisioned to Grafana
 
 Influxdb:
 - Running in default port 8086
