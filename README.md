@@ -1,5 +1,5 @@
-# SignalK, Telegraf, Influxdb and Grafana
-Signalk-server, Telegraf, Influxdb and Grafana in docker-compose. mDNS services (no-root) are discoverable from docker.
+# SignalK, Telegraf, Influxdb and Grafana in docker
+Signalk-server, Telegraf, Influxdb and Grafana in docker. mDNS services (no-root) are discoverable from docker.
 ```bash
 git clone https://github.com/KEGustafsson/SignalK-Telegraf-Influxdb-Grafana-in-docker.git
 
