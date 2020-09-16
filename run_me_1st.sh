@@ -32,8 +32,7 @@ case $readMe2 in
   [1])
     cp $PWD/conf/docker-compose-sk.yml docker-compose.yml
     mkdir -p $PWD/../signalk_conf
-    docker-compose up -d
-    docker-compose restart
+    docker-compose down && docker-compose pull && docker-compose build --no-cache && docker-compose up -d
     ;;
 
   [2])
@@ -48,7 +47,7 @@ case $readMe2 in
     docker cp grafana:/usr/share/grafana/conf/. $PWD/../signalk_volume/grafana/conf
     docker stop grafana
     docker rm grafana
-    docker-compose up -d
+    docker-compose down && docker-compose pull && docker-compose build --no-cache && docker-compose up -d
     sleep 20
     curl -i -XPOST http://localhost:8086/query --data-urlencode "q=CREATE DATABASE boatdata"
  #   curl -i -XPOST http://localhost:8086/query --data-urlencode "q=ALTER RETENTION POLICY "autogen" ON "boatdata" DURATION 7d"
@@ -69,11 +68,10 @@ case $readMe2 in
     docker cp grafana:/usr/share/grafana/conf/. $PWD/../signalk_volume/grafana/conf
     docker stop grafana
     docker rm grafana
-    docker-compose up -d
+    docker-compose down && docker-compose pull && docker-compose build --no-cache && docker-compose up -d
     sleep 20
     curl -i -XPOST http://localhost:8086/query --data-urlencode "q=CREATE DATABASE boatdata"
 #    curl -i -XPOST http://localhost:8086/query --data-urlencode "q=ALTER RETENTION POLICY "autogen" ON "boatdata" DURATION 7d"
-    docker-compose restart
     ;;
 
   *)
