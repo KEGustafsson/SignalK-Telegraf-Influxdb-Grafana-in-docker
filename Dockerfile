@@ -26,8 +26,6 @@ RUN git checkout preferred-source-delta-filtering
 # Startup script
 COPY --chown=node startup.sh startup.sh
 RUN chmod +x startup.sh
-COPY --chown=node avahi/avahi.sh avahi.sh
-RUN chmod +x avahi.sh
 COPY --chown=root avahi/avahi-dbus.conf /etc/dbus-1/system.d/avahi-dbus.conf
 
 USER root
