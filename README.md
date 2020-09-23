@@ -21,7 +21,7 @@ git clone https://github.com/KEGustafsson/SignalK-Telegraf-Influxdb-Grafana-in-d
 ```bash
 Select which node version will be used
    1: Node10-slim
-   2: Node12-slim
+   2: Node12-slim  (use this if you don't know)
 
 1st time installation, select 1-3
    1: SignalK
@@ -66,7 +66,7 @@ Manual installation
 - docker-compose pull
 - docker-compose up -d
 
-Up/Down: (use this instead of start/stop/restart, if you see problems with mDNS) 
+Up/Down:
 - docker-compose up -d (-d run service as a daemon)
 - docker-compose down
 
