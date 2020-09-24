@@ -60,6 +60,11 @@ sudo apt-get install -y python3 python3-pip
 sudo apt-get remove python-configparser
 sudo pip3 install docker-compose
 ```
+- Post-installation steps for Linux (https://docs.docker.com/engine/install/linux-postinstall/)
+```bash
+sudo groupadd docker
+sudo usermod -aG docker $USER
+```
 
 Manual installation
 - docker-compose build .
