@@ -16,7 +16,7 @@ git clone https://github.com/KEGustafsson/SignalK-Telegraf-Influxdb-Grafana-in-d
         └── telegraf config file is located here (bind mount)
 ```
 1st Intallation:
-- Run run_me_1st.sh when installing SignalK, Telegraf, Influxdb and Grafana at first time
+- Run run_me_1st.sh when installing SignalK, Telegraf, Influxdb and Grafana at first time (do not use sudo to run this script).
 - In case Influxdb is selected, then database "boatdata" is generated. If you want retention policy active, uncomment respective lines. Alter settings before running it if you want other name and different retention policy for the database.
 ```bash
 Select which node version will be used
