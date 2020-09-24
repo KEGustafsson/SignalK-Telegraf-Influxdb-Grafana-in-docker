@@ -3,7 +3,7 @@ Signalk-server, Telegraf, Influxdb and Grafana in docker. mDNS services (no-root
 ```bash
 git clone https://github.com/KEGustafsson/SignalK-Telegraf-Influxdb-Grafana-in-docker.git
 
-├── signalk
+├── SignalK-Telegraf-Influxdb-Grafana-in-docker
 │   └── signalk docker files located here 
 ├── signalk_conf
 │   └── .signalk -folder is located here (bind mount) 
