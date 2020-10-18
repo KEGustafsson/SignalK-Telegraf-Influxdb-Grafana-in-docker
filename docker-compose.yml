@@ -1,6 +1,27 @@
 version: "2.2"
 
 services:
+  edge_agent:
+    image: portainer/agent
+    container_name: portainer_edge_agent
+    restart: unless-stopped
+    network_mode: bridge
+    ports:
+      - 8000:80
+    environment:
+      - EDGE=1
+      - EDGE_ID=c386bee4-dd1c-43a9-8d12-93cf6ed8f6b7
+      - EDGE_KEY=aHR0cDovLzE5Mi4xNjguMC4xMjo5MDAxfDE5Mi4xNjguMC4xMjo4MDAwfGRlOjg2Ojc0OjIxOjMyOjk2OjRiOjIyOjc5OmJjOjgyOmNmOjdkOjE3OjQyOjIyfDQ
+      - CAP_HOST_MANAGEMENT=1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker/volumes:/var/lib/docker/volumes
+      - /:/host
+      - portainer_agent_data:/data
+    logging:
+      options:
+        max-size: 10m
+
   influxdb:
     image: influxdb:latest
     container_name: influxdb
@@ -64,3 +85,7 @@ services:
     logging:
       options:
         max-size: 10m
+
+volumes:
+  portainer_agent_data:
+

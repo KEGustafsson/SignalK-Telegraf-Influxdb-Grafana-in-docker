@@ -9,19 +9,12 @@ RUN echo 'node ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER node
 RUN mkdir -p /home/node/
 WORKDIR /home/node/
-#RUN git clone https://github.com/SignalK/signalk-server.git signalk
-RUN git clone https://github.com/KEGustafsson/signalk-server.git signalk
+RUN git clone https://github.com/SignalK/signalk-server.git signalk
 WORKDIR /home/node/signalk
 
 # Uncomment if you want specific tag instead of latest
-# RUN git fetch && git fetch --tags
-# RUN git checkout v1.30.0
-
 #RUN git fetch && git fetch --tags
-RUN git checkout preferred-source-delta-filtering
-#RUN git config user.email "you@example.com"
-#RUN git config user.name "Your Name"
-#RUN git merge --no-commit --no-ff origin/master
+#RUN git checkout v1.30.0
 
 # Startup script
 COPY --chown=node startup.sh startup.sh
