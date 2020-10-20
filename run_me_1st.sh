@@ -1,24 +1,4 @@
 #!/bin/bash
-echo "Select which node version will be used"
-echo "   1: Node10-slim"
-echo "   2: Node12-slim"
-read readMe1
-
-case $readMe1 in
-
-  [1])
-    cp $PWD/conf/Dockerfile_10 Dockerfile
-    ;;
-
-  [2])
-    cp $PWD/conf/Dockerfile_12 Dockerfile
-    ;;
-  *)
-    echo "Unknown selection"
-    ;;
-
-esac
-
 echo
 echo
 echo "Select Signal K source"

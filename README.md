@@ -19,10 +19,6 @@ git clone https://github.com/KEGustafsson/SignalK-Telegraf-Influxdb-Grafana-in-d
 - Run run_me_1st.sh when installing SignalK, Telegraf, Influxdb and Grafana at first time (do not use sudo to run this script).
 - In case Influxdb is selected, then database "boatdata" is generated. If you want retention policy active, uncomment respective lines. Alter settings before running it if you want other name and different retention policy for the database.
 ```bash
-Select which node version will be used
-   1: Node10-slim
-   2: Node12-slim  (use this if you don't know)
-
 Select Signal K source
    1: SignalK, build from Github source
    2: SignalK, Dockedhub source (fast installation)
