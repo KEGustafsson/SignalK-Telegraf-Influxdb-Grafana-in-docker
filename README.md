@@ -23,9 +23,9 @@ Select which node version will be used
    1: Node10-slim
    2: Node12-slim  (use this if you don't know)
 
-Select Signal K source"
-   1: SignalK, build from Github source"
-   2: SignalK, Dockedhub source (fast installation)"
+Select Signal K source
+   1: SignalK, build from Github source
+   2: SignalK, Dockedhub source (fast installation)
 
 Select setup
    1: SignalK
