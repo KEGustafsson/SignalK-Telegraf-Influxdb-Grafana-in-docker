@@ -21,7 +21,7 @@ git clone https://github.com/KEGustafsson/SignalK-Telegraf-Influxdb-Grafana-in-d
 ```bash
 Select Signal K source
    1: SignalK, build from Github source
-   2: SignalK, Dockedhub source (fast installation)
+   2: SignalK, Dockerhub source (fast installation)
 
 Select setup
    1: SignalK
