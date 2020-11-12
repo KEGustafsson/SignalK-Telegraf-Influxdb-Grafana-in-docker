@@ -32,7 +32,7 @@ services:
         max-size: 10m
 
   signalk-server:
-    image: signalk/signalk-server:latest
+    image: kgustafs/signalk-server:latest
     container_name: signalk-server
     restart: unless-stopped
     network_mode: host
