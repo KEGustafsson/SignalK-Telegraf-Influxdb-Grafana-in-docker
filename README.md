@@ -1,5 +1,6 @@
 # SignalK, Telegraf, Influxdb and Grafana in docker
-Signalk-server, Telegraf, Influxdb and Grafana in docker. mDNS services (no-root) are discoverable from docker.
+SignalK-server, Telegraf, Influxdb and Grafana in docker. mDNS services (no-root) are discoverable from docker.
+SignalK is based on Node 14. Previous versions are based on Node 12. See upgrade noted below.
 ```bash
 git clone https://github.com/KEGustafsson/SignalK-Telegraf-Influxdb-Grafana-in-docker.git
 
@@ -67,21 +68,47 @@ sudo usermod -aG docker $USER
 ```
 
 Manual installation
-- docker-compose build .
-- docker-compose pull
-- docker-compose up -d
+```bash
+docker-compose build .
+docker-compose pull
+docker-compose up -d
+```
 
 Up/Down:
-- docker-compose up -d (-d run service as a daemon)
-- docker-compose down
+```bash
+docker-compose up -d
+docker-compose down
+```
+(-d run service as a daemon)
 
 Start/Stop/Restart:
-- docker-compose start 
-- docker-compose stop
-- docker-compose restart
+```bash
+docker-compose start
+docker-compose stop
+docker-compose restart
+```
 
-Start/Stop individual service e.g. SignalK and rest of the stack will remain untouched
-- docker-compose start signalk-server
-- docker-compose stop signalk-server
+Start/Stop/Restart individual service e.g. SignalK and rest of the stack will remain untouched
+```bash
+docker-compose start signalk-server
+docker-compose stop signalk-server
+docker-compose restart signalk-server
+```
+
+Note for upgrading: 
+Old versions were using Node 12 and therefore you need to remove /home/node/.signalk/node_modules -folder and re-install node modules.
+
+Enter inside signalk-server docker and remove folder, below is example: 
+```bash
+docker exec -it signalk-server bash
+cd ../../.signalk
+rm -rf node_modules
+npm i
+exit
+```
+and then restart docker or docker-compose
+```bash
+docker-compose restart signalk-server
+```
 
 Test on Intel/AMD (x86_64) and ARM64 (aarch64) platforms.
