@@ -101,7 +101,7 @@ Old versions were using Node 12 and therefore you need to remove /home/node/.sig
 Enter inside signalk-server docker and remove folder, below is example: 
 ```bash
 docker exec -it signalk-server bash
-cd ../../.signalk
+cd ./../.signalk
 rm -rf node_modules
 npm i
 exit
