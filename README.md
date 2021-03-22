@@ -59,6 +59,7 @@ curl -sSL https://get.docker.com | sh
 sudo apt-get install -y libffi-dev libssl-dev
 sudo apt-get install -y python3 python3-pip
 sudo apt-get remove python-configparser
+python3 -m pip install -U pip
 sudo pip3 install docker-compose
 ```
 - Post-installation steps for Linux (https://docs.docker.com/engine/install/linux-postinstall/)
