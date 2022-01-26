@@ -2,8 +2,7 @@ version: "2.2"
 
 services:
   signalk-server:
-    build: .
-    image: signalk-server
+    image: kgustafs/signalk-server:node16-latest
     container_name: signalk-server
     restart: unless-stopped
     network_mode: host

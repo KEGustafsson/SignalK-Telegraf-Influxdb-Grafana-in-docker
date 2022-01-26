@@ -1,6 +1,6 @@
 # SignalK, Telegraf, Influxdb and Grafana in docker
 SignalK-server, Telegraf, Influxdb and Grafana in docker. mDNS services (no-root) are discoverable from docker.
-SignalK is based on Node 14. Previous versions are based on Node 12. See upgrade noted below.
+SignalK is based on Node 16. Previous versions are based on Node 12 & 14. See upgrade noted below.
 ```bash
 git clone https://github.com/KEGustafsson/SignalK-Telegraf-Influxdb-Grafana-in-docker.git
 
@@ -20,10 +20,6 @@ git clone https://github.com/KEGustafsson/SignalK-Telegraf-Influxdb-Grafana-in-d
 - Run run_me_1st.sh when installing SignalK, Telegraf, Influxdb and Grafana at first time (do not use sudo to run this script).
 - In case Influxdb is selected, then database "boatdata" is generated. If you want retention policy active, uncomment respective lines. Alter settings before running it if you want other name and different retention policy for the database.
 ```bash
-Select Signal K source
-   1: SignalK, build from Github source
-   2: SignalK, Dockerhub source (fast installation)
-
 Select setup
    1: SignalK
    2: SignalK + Influxdb and Grafana
@@ -46,9 +42,6 @@ Influxdb:
 Telegraf:
 - Telegraf has a dummy telegraf.conf installed after run_me_1st.sh was run. Edit configuration according to your needs (input: data sources and output: influxdb database, urls, username and password) and restart docker-compose. If you do not need telegraf, you don't need to do anything.
 
-To use specific SignalK tag/release:
-- uncomment Dockerfile tag selection and specify version there
-
 To use specific SignalK ENV parameters (https://github.com/SignalK/signalk-server#environment-variables):
 - uncomment Dockerfile ENV selection and specify parameters there
 
@@ -70,7 +63,6 @@ sudo usermod -aG docker $USER
 
 Manual installation
 ```bash
-docker-compose build .
 docker-compose pull
 docker-compose up -d
 ```
@@ -97,7 +89,7 @@ docker-compose restart signalk-server
 ```
 
 Note for upgrading: 
-Old versions were using Node 12 and therefore you need to remove /home/node/.signalk/node_modules -folder and re-install node modules.
+Old versions were using Node 12 & 14 and therefore you need to remove /home/node/.signalk/node_modules -folder and re-install node modules.
 
 Enter inside signalk-server docker and remove folder, below is example: 
 ```bash

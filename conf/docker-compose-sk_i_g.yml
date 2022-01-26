@@ -5,9 +5,7 @@ services:
     image: influxdb:1.8
     container_name: influxdb
     restart: unless-stopped
-    network_mode: bridge
-    ports:
-      - "8086:8086"
+    network_mode: host
     volumes:
       - $PWD/../signalk_volume/influxdb:/var/lib/influxdb
     logging:
@@ -18,12 +16,8 @@ services:
     image: grafana/grafana:latest
     container_name: grafana
     restart: unless-stopped
-    network_mode: bridge
+    network_mode: host
     user: "0:0"
-    ports:
-      - "3001:3000"
-    links:
-      - influxdb
     volumes:
       - $PWD/../signalk_volume/grafana/data:/var/lib/grafana
       - $PWD/../signalk_volume/grafana/conf:/usr/share/grafana/conf
@@ -32,8 +26,7 @@ services:
         max-size: 10m
 
   signalk-server:
-    build: .
-    image: signalk-server
+    image: kgustafs/signalk-server:node16-latest
     container_name: signalk-server
     restart: unless-stopped
     network_mode: host
