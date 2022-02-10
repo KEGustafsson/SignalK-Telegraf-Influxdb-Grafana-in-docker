@@ -25,25 +25,6 @@ services:
       options:
         max-size: 10m
 
-  telegraf:
-    container_name: telegraf
-    image: telegraf:latest
-    restart: unless-stopped
-    network_mode: host
-    environment:
-      HOST_PROC: /rootfs/proc
-      HOST_SYS: /rootfs/sys
-      HOST_ETC: /rootfs/etc
-    volumes:
-      - $PWD/../signalk_volume/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /sys:/rootfs/sys:ro
-      - /proc:/rootfs/proc:ro
-      - /etc:/rootfs/etc:ro
-    logging:
-      options:
-        max-size: 10m
-
   signalk-server:
     image: kgustafs/signalk-server:node16-latest
     container_name: signalk-server
